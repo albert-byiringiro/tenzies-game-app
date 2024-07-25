@@ -42,9 +42,16 @@ useEffect(()=>{
 
 
   const rollDice = () => {
+
+  if (!tenzies) {
     setdice1(oldDice => oldDice.map(die => {
       return die.isHeld ? die : generateDie();
     }))
+  }  else {
+    setTenzies(false);
+    setdice1(allNewDice1());
+  }
+
   }
   
 
