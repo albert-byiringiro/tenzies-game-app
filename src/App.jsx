@@ -23,13 +23,7 @@ export default function App() {
   const [dice1, setdice1] = useState(allNewDice1)
 
 
-  /**
- * Challenge:
- * 1. Add new state called `tenzies`, default to false. It
- *    represents whether the user has won the game yet or not.
- * 2. Add an effect that runs every time the `dice` state array 
- *    changes. For now, just console.log("Dice state changed").
- */
+
 const [tenzies, setTenzies] = useState(false);
 
 
@@ -69,6 +63,8 @@ useEffect(()=>{
       isHeld={die.isHeld} 
       holdDice={() => holdDice(die.id)} />
   })
+
+  
   
   return (
     
@@ -78,7 +74,7 @@ useEffect(()=>{
       <div className="grid grid-cols-5 grid-rows-2 gap-5 mt-8">
         {diceDisplay1}
       </div>
-      <button className="bg-[#5035FF] text-white px-10 py-2 mt-10 text-3xl font-semibold text-center cursor-pointer rounded-md" onClick={handlerRoll}>Roll</button>
+      <button className="bg-[#5035FF] text-white px-10 py-2 mt-10 text-3xl font-semibold text-center cursor-pointer rounded-md" onClick={handlerRoll}>{tenzies ? "New Game" : "Roll"}</button>
     </main>    
 
   )
