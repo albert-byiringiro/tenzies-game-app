@@ -17,6 +17,27 @@
 import Die from "./components/Die";
 
 export default function App() {
+  
+  /**
+ * Challenge:
+ * 
+ * Write a function (allNewDice) that returns an array 
+ * of 10 random numbers between 1-6 inclusive.
+ * 
+ * Log the array of numbers to the console for now
+ */
+
+  const allNewDice = () => {
+    const diceArray = [];
+    for (let i = 0; i < 10; i++) {
+      const calculateRandom = Math.floor(Math.random() * 6) + 1
+      diceArray.push(calculateRandom)
+    }
+    return diceArray
+  } 
+
+  console.log(allNewDice())
+  
   return (
     <main className='bg-white h-[500px] w-[800px] flex flex-col justify-center items-center'>
       <div className="grid grid-cols-5 grid-rows-2 gap-5">
