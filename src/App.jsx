@@ -30,7 +30,7 @@ export default function App() {
   const allNewDice = () => {
     const diceArray = [];
     for (let i = 0; i < 10; i++) {
-      const calculateRandom = Math.floor(Math.random() * 6) + 1
+      const calculateRandom = Math.ceil(Math.random() * 6)
       diceArray.push(calculateRandom)
     }
     return diceArray
