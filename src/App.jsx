@@ -33,14 +33,6 @@ export default function App() {
 const [tenzies, setTenzies] = useState(false);
 
 
-/**
- * Challenge: Check the dice array for these winning conditions:
- * 1. All dice are held, and
- * 2. all dice have the same value
- * 
- * If both conditions are true, set `tenzies` to true and log
- * "You won!" to the console
- */
 useEffect(()=>{
   const isHandled = dice1.every(die => die.isHeld);
   const firstValue = dice1[0].value;
