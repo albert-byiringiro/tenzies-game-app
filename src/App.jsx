@@ -1,6 +1,7 @@
 import Die from "./components/Die";
 import { useEffect, useState} from "react";
 import {nanoid} from "nanoid"
+import Confetti from 'react-confetti'
 
 export default function App() {
 
@@ -34,14 +35,13 @@ useEffect(()=>{
 
   if (isHandled && sameValue) {
     setTenzies(true);
-    console.log("Won!");
   }
 }, [dice1])
   
 
 
 
-  const handlerRoll = () => {
+  const rollDice = () => {
     setdice1(oldDice => oldDice.map(die => {
       return die.isHeld ? die : generateDie();
     }))
@@ -65,16 +65,22 @@ useEffect(()=>{
   })
 
   
+  const conf = () => {
+    return (
+      <Confetti/>
+    )
+  }
   
   return (
     
     <main className='bg-white h-[500px] w-[800px] flex flex-col justify-center items-center'>
+      {tenzies && conf()}
       <h1 className="m-0 text-4xl font-semibold text-gray-900">Tenzies</h1>
       <p className="mt-0 font-normal text-center">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <div className="grid grid-cols-5 grid-rows-2 gap-5 mt-8">
         {diceDisplay1}
       </div>
-      <button className="bg-[#5035FF] text-white px-10 py-2 mt-10 text-3xl font-semibold text-center cursor-pointer rounded-md" onClick={handlerRoll}>{tenzies ? "New Game" : "Roll"}</button>
+      <button className="bg-[#5035FF] text-white px-10 py-2 mt-10 text-3xl font-semibold text-center cursor-pointer rounded-md" onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
     </main>    
 
   )
